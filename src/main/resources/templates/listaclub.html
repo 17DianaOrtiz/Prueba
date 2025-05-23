@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clubes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7fc;
+            padding-top: 40px;
+        }
+        .table th {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .btn-actions i {
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="mb-4 text-center">Listado de Clubes Registrados</h2>
+
+    <div class="mb-3">
+        <a href="/ingresarclub" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Nuevo Club
+        </a>
+    </div>
+
+	<table class="table table-striped table-bordered">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Nombre</th>
+	                <th>Ciudad</th>
+	                <th>País</th>
+					<th>Patrocinadores</th>
+	                <th>Presidente</th>
+	                <th>Entrenador</th>
+					<th>Jugadores</th>
+	                <th>Asociación</th>
+					<th>Competiciones</th>
+	                <th>Acciones</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="club : ${listaclub}">
+	                <td th:text="${club.id}"></td>
+	                <td th:text="${club.nombre}"></td>
+	                <td th:text="${club.ciudad}"></td>
+	                <td th:text="${club.pais}"></td>
+					<td th:text="${club.patrocinadores}"></td>
+	                <td th:text="${club.presidente}"></td>
+					<td th:text="${club.entrenador.nombre}"></td>
+					<td>
+					    <ul>
+					        <li th:each="jugador : ${club.jugadores}" th:text="${jugador.nombre}"></li>
+					    </ul>
+					</td>
+					<td th:text="${club.asociacion.nombre}"></td>
+	               
+					<td>
+					    <ul>
+					        <li th:each="competicion : ${club.competiciones}" th:text="${competicion.nombre}"></li>
+					    </ul>
+					</td>
+					
+	                <td class="btn-actions">
+	                    <a th:href="@{/editarclub/{id}(id=${club.id})}" class="btn btn-warning btn-sm">
+	                        <i class="bi bi-pencil-square"></i> Editar
+	                    </a>
+	                    <a th:href="@{/eliminarclub/{id}(id=${club.id})}" class="btn btn-danger btn-sm" 
+	                       onclick="return confirm('¿Estás seguro de eliminar este club?');">
+	                        <i class="bi bi-trash"></i> Eliminar
+	                    </a>
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+		
+		<a href="/" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Volver</a>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</body>
+</html>

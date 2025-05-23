@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-center">
+        <h1 class="mb-4">Bienvenido a la seccion de clubes</h1>
+		<p>Agregue los jugadores, competiciones, entrenador, asociacion antes de registrar algun club</p>
+        <a href="/listaclub" class="btn btn-custom">Clubes</a>
+		<a href="/verentrenador" class="btn btn-custom">Entrenadores</a>
+		<a href="/verasociacion" class="btn btn-custom">Asociaciones</a>
+		<a href="/vercompeticion" class="btn btn-custom">Competiciones</a>
+		<a href="/verjugador" class="btn btn-custom">Jugadores</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
